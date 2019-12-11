@@ -51,9 +51,9 @@ public class SetUpDefinitions {
      */
 	@Given("^I go to \"([^\"]*)\" on \"([^\"]*)\"$")
 	public void I_Go_To_url(String url,String browser){
-		System.out.println("I am going to "+ url +" on  "+ browser);
+		System.out.println("I am going to "+ gf.getElementContent(url) +" on  "+ browser);
 		 gf.openBrowser(browser);
-		 gf.navigate(url);
+		 gf.navigate(gf.getElementContent(url));
 	}
 	//screenshot for cucumber report
 	 @After
