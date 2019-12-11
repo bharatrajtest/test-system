@@ -2,10 +2,11 @@ package com.testing.stepdefinitions;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 
 import com.testing.common.functions.GeneralFunctions;
+
+import static com.testing.common.functions.GeneralFunctions.*;
 
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
@@ -14,7 +15,6 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 
 public class SetUpDefinitions {
-	//public static WebDriver driver;
 	private Scenario myScenario;
 	GeneralFunctions gf = new GeneralFunctions();
 	@Before()
@@ -37,7 +37,7 @@ public class SetUpDefinitions {
 	}
 	
 	 @After
-	    public void afterScenario() {/*
+	    public void afterScenario() {
 		myScenario.write("Finishing scenario: " + myScenario.getName());
 		if (myScenario.isFailed()) {
 		    try {
@@ -49,7 +49,9 @@ public class SetUpDefinitions {
 		}
 		    //driver.quit();
 		
-	    */}
+	    }
+	 
+	 
 
 	
 }
