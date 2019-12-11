@@ -9,7 +9,11 @@ import com.testing.common.apifunctions.ApiFunctions;
 import com.testing.common.functions.GeneralFunctions;
 
 import cucumber.api.java.en.Then;
-
+/**
+*
+* @author Bharatraj 
+* Main class for "THEN" statements for use within the framework
+*/
 public class VerificationDefinitions {
 	GeneralFunctions gf = new GeneralFunctions();
 	ApiFunctions af = new ApiFunctions();
@@ -34,7 +38,7 @@ public class VerificationDefinitions {
      * Validates api response
      *
      * @param parameter - api query parameter
-     * @param method - POST GET or PATCH
+     * @param method - POST, GET or PATCH
      * @throws Throwable
      */
 	@Then("^validate the response for \"([^\"]*)\" city through OpenWeather \"([^\"]*)\" API$")

@@ -1,10 +1,5 @@
 package com.testing.common.functions;
 
-import static com.testing.common.functions.GeneralFunctions.driver;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +8,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.testing.objectrepository.BaseLocators;
 
+/**
+*
+* @author Bharatraj 
+* Main class for general functions for use within the framework
+*/
 public class GeneralFunctions {
 	public static WebDriver driver;
 	
@@ -33,9 +33,9 @@ public class GeneralFunctions {
 		driver.get(URL);		
 		}
 	
-public boolean waitForObject(WebDriver driver, String object, int timeout) throws InterruptedException {
-		
-		
+	public boolean waitForObject(WebDriver driver, String object, int timeout)
+			throws InterruptedException {
+
 		boolean flag = false;
 		int timecompare = 0;
 		while (flag == false) {
@@ -47,93 +47,96 @@ public boolean waitForObject(WebDriver driver, String object, int timeout) throw
 			WebElement lookfor = getObject(driver, object);
 			if (lookfor != null) {
 				if (lookfor.isDisplayed()) {
-					flag = true;					
+					flag = true;
 					return flag;
 				}
 			}
 		}
-		
+
 		return flag;
 	}
-public WebElement getObject(WebDriver driver2, String recString) {	
-	try {
-		WebElement o_elem = driver.findElement(By.id(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {;}
-	try {
-		WebElement o_elem = driver.findElement(By.className(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {
-		;
-	} // Don't do anything if it fails. Continue.
 
-	try {
-		WebElement o_elem = driver.findElement(By.linkText(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {
-		;
-	} // Don't do anything if it fails. Continue.
-	try {
-		WebElement o_elem = driver.findElement(By.name(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {
-		;
-	} // Don't do anything if it fails. Continue.
-	try {
-		WebElement o_elem = driver.findElement(By.partialLinkText(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {
-		;
-	} // Don't do anything if it fails. Continue.
-	try {
-		WebElement o_elem = driver.findElement(By.tagName(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {
-		;
-	} // Don't do anything if it fails. Continue.
-	try {
-		WebElement o_elem = driver.findElement(By.xpath(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {
-		e.getStackTrace();
-	} // Don't do anything if it fails. Continue.
-	try {
-		WebElement o_elem = driver.findElement(By.cssSelector(recString));
-		System.out.println("Found object " + recString);
-		return (o_elem);
-	} catch (Exception e) {
-		e.getStackTrace();
-	} // Don't do anything if it fails. Continue.
-	
-	
-	return (null);
+	public WebElement getObject(WebDriver driver2, String recString) {
+		try {
+			WebElement o_elem = driver.findElement(By.id(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			;
+		}
+		try {
+			WebElement o_elem = driver.findElement(By.className(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			;
+		} // Don't do anything if it fails. Continue.
 
-}
+		try {
+			WebElement o_elem = driver.findElement(By.linkText(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			;
+		} // Don't do anything if it fails. Continue.
+		try {
+			WebElement o_elem = driver.findElement(By.name(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			;
+		} // Don't do anything if it fails. Continue.
+		try {
+			WebElement o_elem = driver.findElement(By
+					.partialLinkText(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			;
+		} // Don't do anything if it fails. Continue.
+		try {
+			WebElement o_elem = driver.findElement(By.tagName(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			;
+		} // Don't do anything if it fails. Continue.
+		try {
+			WebElement o_elem = driver.findElement(By.xpath(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			e.getStackTrace();
+		} // Don't do anything if it fails. Continue.
+		try {
+			WebElement o_elem = driver.findElement(By.cssSelector(recString));
+			System.out.println("Found object " + recString);
+			return (o_elem);
+		} catch (Exception e) {
+			e.getStackTrace();
+		} // Don't do anything if it fails. Continue.
 
-public String getElementContent(String element) {
-	try {	    
-	    return BaseLocators.getLocator(element).toString();
-	} catch (Exception ex) {	    
-	    return element;
+		return (null);
+
 	}
-    }
-public void type(WebElement object, String value) {
-	object.clear();
-	object.sendKeys(value);
-	
-}
-public void click(WebElement object) {
-	object.click();
-	
-}
 
+	public String getElementContent(String element) {
+		try {
+			return BaseLocators.getLocator(element).toString();
+		} catch (Exception ex) {
+			return element;
+		}
+	}
 
+	public void type(WebElement object, String value) {
+		object.clear();
+		object.sendKeys(value);
+
+	}
+
+	public void click(WebElement object) {
+		object.click();
+
+	}
 
 }

@@ -6,6 +6,11 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
+/**
+*
+* @author Bharatraj 
+* Main class for API functions for use within the framework
+*/
 public class ApiFunctions {
 
 	public int getResponsecode(String parameter) {

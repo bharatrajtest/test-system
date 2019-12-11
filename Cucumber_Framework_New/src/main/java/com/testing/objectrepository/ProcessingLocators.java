@@ -1,11 +1,11 @@
 package com.testing.objectrepository;
 /**
- * This interface has all elements of Candidate Hub
+ * interface for Home Page
  *
  */
 public interface ProcessingLocators {
 	
-	//openweathermap Home Page
+	public String AUT_url = "https://openweathermap.org/";
 	public String Navbar_Header = "//a[@class='navbar-brand']//img[@class='img-responsive']";		
 	public String City_Search_Textbox = "(//input[@name='q'])[2]";
 	public String Error_Message = "//div[contains(text(),'Not found')]";
