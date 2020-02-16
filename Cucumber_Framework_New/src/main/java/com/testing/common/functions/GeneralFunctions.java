@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.testing.objectrepository.BaseLocators;
+//import com.testing.objectrepository.BaseLocators;
 
 /**
 *
@@ -118,14 +118,6 @@ public class GeneralFunctions {
 
 		return (null);
 
-	}
-
-	public String getElementContent(String element) {
-		try {
-			return BaseLocators.getLocator(element).toString();
-		} catch (Exception ex) {
-			return element;
-		}
 	}
 
 	public void type(WebElement object, String value) {
