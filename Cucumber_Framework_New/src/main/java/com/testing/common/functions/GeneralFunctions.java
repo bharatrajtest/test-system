@@ -130,5 +130,13 @@ public class GeneralFunctions {
 		object.click();
 
 	}
+	
+	public String getElementContent(String classname, String content) {
+	try {
+		return Class.forName("classname").getField(content).get((Class.forName("classname"))).toString();
+	} catch (Exception ex) {
+		return content;
+	}
+}
 
 }

@@ -18,22 +18,22 @@ public class LandingPage {
         this.driver = driver;
 
     }
-	public String getElementContent(String content) {
+	/*public String getElementContent(String content) {
 		try {
 			return LandingPage.class.getField(content).get((LandingPage.class)).toString();
 		} catch (Exception ex) {
 			return content;
 		}
-	}
+	}*/
 	public void getUrl(String url, String browser) {
 		 gf.openBrowser(browser);		 
-		 gf.navigate(getElementContent(url));
+		 gf.navigate(gf.getElementContent(this.getClass().toString(),url));
 		
 	}
 
 	public boolean isElementPresent(String element) {
 		try {
-			return gf.waitForObject(driver,getElementContent(element),10);
+			return gf.waitForObject(driver,gf.getElementContent(this.getClass().toString(),element),10);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
