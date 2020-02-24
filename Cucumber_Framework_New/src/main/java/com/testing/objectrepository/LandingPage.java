@@ -27,13 +27,13 @@ public class LandingPage {
 	}*/
 	public void getUrl(String url, String browser) {
 		 gf.openBrowser(browser);		 
-		 gf.navigate(gf.getElementContent(this.getClass().toString(),url));
+		 gf.navigate(gf.getElementContent(this.getClass().getName(),url));
 		
 	}
 
 	public boolean isElementPresent(String element) {
 		try {
-			return gf.waitForObject(driver,gf.getElementContent(this.getClass().toString(),element),10);
+			return gf.waitForObject(driver,gf.getElementContent(this.getClass().getName(),element),10);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

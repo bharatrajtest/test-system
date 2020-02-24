@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 //import com.testing.objectrepository.BaseLocators;
@@ -21,8 +22,19 @@ public class GeneralFunctions {
 			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\geckodriver\\geckodriver.exe");
 			driver=new FirefoxDriver();		
 		}else if(browsertype.equals("Chrome")){
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");
-			driver=new ChromeDriver();			
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chrome\\chromedriver.exe");			
+			ChromeOptions fp = new ChromeOptions();
+	        fp.addArguments("--disable-extensions");
+	        fp.addArguments("test-type");
+	        fp.addArguments("start-maximized");
+	        fp.addArguments("--js-flags=--expose-gc");
+	        fp.addArguments("--enable-precise-memory-info");
+	        fp.addArguments("--disable-popup-blocking");
+	        fp.addArguments("--disable-default-apps");
+	        fp.addArguments("test-type=browser");
+	        fp.addArguments("disable-infobars");
+	        fp.setExperimentalOption("useAutomationExtension", false);
+	        driver = new ChromeDriver(fp);
 		}else if(browsertype.equals("IE")){
 			//IE set up
 			}
@@ -133,10 +145,11 @@ public class GeneralFunctions {
 	
 	public String getElementContent(String classname, String content) {
 	try {
-		return Class.forName("classname").getField(content).get((Class.forName("classname"))).toString();
+		return Class.forName(classname).getField(content).get((Class.forName(classname))).toString();
 	} catch (Exception ex) {
-		return content;
+		ex.printStackTrace();
 	}
+	return content;
 }
 
 }
