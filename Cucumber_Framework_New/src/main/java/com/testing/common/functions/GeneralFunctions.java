@@ -45,28 +45,41 @@ public class GeneralFunctions {
 		driver.get(URL);		
 		}
 	
-	public boolean waitForObject(WebDriver driver, String object, int timeout)
-			throws InterruptedException {
-
+	//Bhartraj added method
+	public WebElement waitForObject(String object, int timeout) throws InterruptedException {
+		WebElement lookfor = null;
 		boolean flag = false;
 		int timecompare = 0;
 		while (flag == false) {
 			Thread.sleep(1000);
 			timecompare += 1;
 			if (timecompare == timeout) {
-				return flag;
+				return lookfor;
 			}
-			WebElement lookfor = getObject(driver, object);
+			lookfor = getObject(driver, object);
 			if (lookfor != null) {
 				if (lookfor.isDisplayed()) {
 					flag = true;
-					return flag;
+					return lookfor;
 				}
 			}
 		}
 
+		return lookfor;
+	}
+
+	// Bhartraj added method
+	public boolean isElementPresent(String object, int timeout) throws InterruptedException {
+		WebElement lookfor = null;
+		boolean flag = false;
+		lookfor = waitForObject(object, timeout);
+		if (lookfor != null) {
+			flag = true;
+			return flag;
+		}
 		return flag;
 	}
+
 
 	public WebElement getObject(WebDriver driver2, String recString) {
 		try {
@@ -144,12 +157,12 @@ public class GeneralFunctions {
 	}
 	
 	public String getElementContent(String classname, String content) {
-	try {
-		return Class.forName(classname).getField(content).get((Class.forName(classname))).toString();
-	} catch (Exception ex) {
-		ex.printStackTrace();
+		try {
+			return Class.forName(classname).getField(content).get((Class.forName(classname))).toString();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return content;
 	}
-	return content;
-}
 
 }

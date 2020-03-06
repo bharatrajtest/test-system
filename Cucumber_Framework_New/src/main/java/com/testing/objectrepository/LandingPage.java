@@ -33,7 +33,9 @@ public class LandingPage {
 
 	public boolean isElementPresent(String element) {
 		try {
-			return gf.waitForObject(driver,gf.getElementContent(this.getClass().getName(),element),10);
+			return gf.isElementPresent(gf.getElementContent(this.getClass().getName(),element),10);
+			//in case you want to call any other class directly
+			//return gf.isElementPresent(gf.getElementContent(LandingPageHelper.class.getName(),element),10);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

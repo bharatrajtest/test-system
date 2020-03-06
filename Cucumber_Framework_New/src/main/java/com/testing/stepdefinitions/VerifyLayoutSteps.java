@@ -22,7 +22,10 @@ public class VerifyLayoutSteps {
 	@Given("^Runmode is \"([^\"]*)\"$")
 	public void Runmode_is(String runmode){
 		if(runmode.equals("N")){
+			//skips test case
 			throw new PendingException("Skippping test as runmode is NO");
+			//fails test case
+			//throw new RuntimeException("Skippping test as runmode is NO");
 		}
 	}
 	/**

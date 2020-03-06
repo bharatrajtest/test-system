@@ -14,4 +14,4 @@ Then the "Navbar_Header" element should be present
 Examples:
 | Runmode | Browser | 
 |    Y    | Chrome  | 
-#|    N    | Mozilla |
+|    N    | Mozilla |
